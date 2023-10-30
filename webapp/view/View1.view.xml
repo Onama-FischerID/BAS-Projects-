@@ -1,0 +1,80 @@
+<mvc:View controllerName="zhappay.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified" >
+    <!-- <Page id="page" title="{i18n>title}">
+        <content />
+    </Page>
+</mvc:View> -->
+<Shell id="shell">
+        <App id="app">
+            <pages><Page id="page" title="{i18n>title}" showHeader="false">
+                    <content>
+                    <BusyDialog id="busy"/>
+                    <VBox width="100%" class="sapUiSmallMarginTop" direction="Column" id="vbox0" justifyContent="Center" alignItems="Center">
+                        <items>
+                            <unified:FileUploader id="fileUploader" uploadComplete="fnUploadComplete" useMultipart="true" sendXHR="true"/>
+                            <Button xmlns="sap.m" text="Upload File" id="btn_upload" press="fnUploadFile"/>
+                            <Table id="table0" items="{response>/responseModel}" backgroundDesign="Solid" fixedLayout="false">
+                            <headerToolbar>
+				                <OverflowToolbar id="_IDGenOverflowToolbar1">
+                                <Title text="Result" id="title"/>
+					             <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+					                    <Button id="_IDGenButton1" icon="sap-icon://excel-attachment" press="fnDownload"/>
+				                </OverflowToolbar>
+			                </headerToolbar>
+                          
+                                <items>
+                                    <ColumnListItem type="Active" id="item0">
+                                        <cells>
+                                            <Text text="{response>SeqNo}" id="text0" wrapping="false"/>
+                                            <Text text="{response>Doc}" id="text1"/>
+                                            <Text text="{response>CompCode}" id="text2"/>
+                                            <Text text="{response>FiscalYear}" id="text3"/>
+                                            <Text text="{response>MsgType}" id="text4"/>
+                                            <Text text="{response>Description}" id="text5" wrapping="false"/>          
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                                <columns>
+                                    <Column id="column0">
+                                        <header>
+                                            <Label text="Seq No" id="label0"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="column1">
+                                        <header>
+                                            <Label text="Document" id="label1"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="column2">
+                                        <header>
+                                            <Label text="Company Code" id="label2"/>
+                                        </header>
+                                    </Column>
+                                     <Column id="column3">
+                                        <header>
+                                            <Label text="Fiscal Year" id="label3"/>
+                                        </header>
+                                    </Column> 
+                                    <Column id="column4">
+                                        <header>
+                                            <Label text="Message Type" id="label4"/>
+                                        </header>
+                                    </Column>
+                                     <Column id="column5">
+                                        <header>
+                                            <Label text="Message" id="label5"/>
+                                        </header>
+                                    </Column>
+                                </columns>
+                            </Table>    
+                        </items>
+                    </VBox>
+                   
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
